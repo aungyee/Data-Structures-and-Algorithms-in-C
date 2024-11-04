@@ -7,6 +7,7 @@ It implements the following interface -
     3. get_at(s, i) - get the element at index i
     4. set_at(s, i, x) - set the element at index i to x
     5. print_sequence(s) - print out all the elements
+    6. destory(s) - destroy the sequece and free memory
 
 */
 
@@ -16,16 +17,22 @@ It implements the following interface -
 
 typedef struct  {
     size_t length;
-    int sequence[];
+    int *sequence;
 } static_sequence;
 
 static_sequence * build(size_t n) {
     static_sequence * a = malloc(sizeof(static_sequence));
     a->length = n;
+    a->sequence = malloc(sizeof(int) * n);
     for (int i = 0; i < n; i++) {
         a->sequence[i] = 0;
     }
     return a;
+}
+
+void destory(static_sequence * s) {
+    free(s->sequence);
+    free(s);
 }
 
 size_t len_sequence(static_sequence * s) {
@@ -67,5 +74,6 @@ int main() {
     set_at(s, 9, 199);
     printf("s[0] = %d \n", get_at(s, 9));
     print_sequence(s);
+    destory(s);
     return 0;
 }
