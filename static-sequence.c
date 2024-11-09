@@ -53,7 +53,7 @@ void print_sequence(static_sequence * s) {
 int get_at(static_sequence * s, size_t i) {
     if (i >= len_sequence(s)) {
         printf("get_at: Index %zu is out of bound for sequence s. \n", i);
-        return errno;
+        exit(1);
     } else {
         return s->sequence[i];
     }
