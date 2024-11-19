@@ -20,7 +20,7 @@ typedef struct  {
     void *sequence;
 } static_sequence;
 
-static_sequence * build(size_t n, size_t size) {
+static_sequence *build(size_t n, size_t size) {
     static_sequence *a = malloc(sizeof(static_sequence));
     a->length = n;
     a->size = size;
@@ -57,21 +57,21 @@ void set_at(static_sequence * s, size_t i, void *x) {
 
 int main() {
     printf("Testing Integer\n");
-    static_sequence * s = build(10, sizeof(int));
+    static_sequence *s = build(10, sizeof(int));
     printf("Length of s = %zu \n", len_sequence(s));
     int x = 199;
     set_at(s, 9, &x);
     printf("s[9] = %d \n", *(int *)get_at(s, 9));
     destory(s);
     printf("Testing Char\n");
-    static_sequence * c = build(10, sizeof(char));
-    printf("Length of c = %zu \n", len_sequence(s));
+    static_sequence *c = build(10, sizeof(char));
+    printf("Length of c = %zu \n", len_sequence(c));
     char a = 'a';
     set_at(c, 9, &a);
     printf("c[9] = %c \n", *(char *)get_at(c, 9));
     destory(c);
     printf("Testing Double\n");
-    static_sequence * d = build(10, sizeof(double));
+    static_sequence *d = build(10, sizeof(double));
     printf("Length of d = %zu \n", len_sequence(d));
     double du = 3.14159;
     set_at(d, 9, &du);
