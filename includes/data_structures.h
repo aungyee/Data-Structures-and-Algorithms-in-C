@@ -70,5 +70,40 @@ void stack_pop(stack *s);
 
 void *stack_peek(stack *s);
 
+
+/*
+
+Queue
+
+A queue implements first in first out (FIFO) policy.
+
+Interface:
+
+1. build(n, s) - initiate a queue of n item with each element having a size of s byte
+2. enqueue(q, x) - push x onto queue
+3. dequeue(q) - remove the next element from queue
+4. peek(q) - get the next element from queue
+5. destory(q) - destory queue and free memory
+*/
+
+typedef struct {
+    size_t length;
+    size_t size;
+    size_t top;
+    size_t bottom;
+    size_t item;
+    void * sequence;
+} queue;
+
+queue *build_queue(size_t length, size_t size);
+
+void queue_enqueue(queue *q, void *x);
+
+void queue_dequeue(queue *q);
+
+void *queue_peek(queue *q);
+
+void destory_queue(queue *q);
+
 #endif // DATA_STRUCTURE_H
 
