@@ -105,5 +105,42 @@ void *queue_peek(queue *q);
 
 void destory_queue(queue *q);
 
+/*
+
+Linklist
+
+A linklist is a data structure in which the objects are arranged in a linear order.
+
+Interface:
+
+	1. create_new_node(size_t data): Create a New linklist node with data
+	2. length_of_linklist(linklist* l):  length of the linklist
+	3. traversal_linklist(linklist* l) : Show all element of linklist
+	4.delete_node_at(linklist* l,int i): Delete Node at index i
+	5.linklist_get_at(linklist* l,int i): Get the element at index i
+	6.linkList_set_at(linklist* l, int i, size_t x): set the elements of  at index i to x	
+ 
+*/
+
+
+typedef struct linklist{
+	size_t data;
+	struct linklist* next; 
+}linklist;
+
+
+
+linklist *create_new_node(size_t data);
+
+int length_of_linklist(linklist* l);
+
+void traversal_linklist(linklist* l);
+
+linklist* delete_node_at(linklist* l,int i);
+
+size_t linklist_get_at(linklist* l,int i);
+
+linklist* linkList_set_at(linklist* l, int i, size_t x);
+
 #endif // DATA_STRUCTURE_H
 
