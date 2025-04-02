@@ -30,6 +30,7 @@ void traversal_link_list(link_list *l){
 	}
 	link_list *temp = l;
 	while (temp != NULL){
+		printf("%zu ",temp->data);
 		temp = temp->next;
 	}
 }
