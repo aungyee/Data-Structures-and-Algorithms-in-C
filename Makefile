@@ -8,7 +8,7 @@ FLAGS = -Wall -g -I$(INCLUDES_DIR)
 .PHONY: all clean build
 
 # Default target
-all: build $(BUILD_DIR)/test-static-sequence $(BUILD_DIR)/test-stack $(BUILD_DIR)/test-queue
+all: build $(BUILD_DIR)/test-static-sequence $(BUILD_DIR)/test-stack $(BUILD_DIR)/test-queue $(BUILD_DIR)/test-linklist
 
 # Ensure the build directory exists
 build:

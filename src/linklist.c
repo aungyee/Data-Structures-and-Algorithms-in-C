@@ -3,19 +3,19 @@
 #include "data_structures.h"
 
 
-linklist *create_new_node(size_t data){
-	linklist *a =(linklist*)malloc(sizeof (linklist));
+link_list *create_new_node(size_t data){
+	link_list *a =(link_list*)malloc(sizeof (link_list));
 	a->data = data;
 	a->next = NULL;
 	return a;
-};
+}
 
-int length_of_linklist(linklist* l){
+int length_of_link_list(link_list* l){
 	if(l == NULL){
 		return 1;
 	}
 	int count = 0;
-	linklist *temp = l;
+	link_list *temp = l;
 	while (temp != NULL){
 		count++;
 		temp = temp->next;
@@ -23,27 +23,25 @@ int length_of_linklist(linklist* l){
 	return count;
 }
 
-void traversal_linklist(linklist *l){
+void traversal_link_list(link_list *l){
 	if(l == NULL){
 		printf("Linklist is Empty");
 		exit(1);
 	}
-	linklist *temp = l;
-//	printf("%zu->",temp);
+	link_list *temp = l;
 	while (temp != NULL){
-		printf("%zu ",temp->data);
 		temp = temp->next;
 	}
 }
 
 
-linklist* delete_node_at(linklist* l,int i){
-	if(i > length_of_linklist(l)) {
+link_list *delete_node_at(link_list *l,int i){
+	if(i > length_of_link_list(l)) {
 		printf("Index Out of bound!");
 		exit(1);
 		}      
-	linklist* temp = l;
-	linklist* prev = NULL;
+	link_list *temp = l;
+	link_list *prev = NULL;
 	if (temp == NULL){
 		return l;
 	}
@@ -64,13 +62,13 @@ linklist* delete_node_at(linklist* l,int i){
 	return l;
 }
 
-size_t linklist_get_at(linklist* l,int i){
-	if (i > length_of_linklist(l)) {
+size_t link_list_get_at(link_list *l,int i){
+	if (i > length_of_link_list(l)) {
 		printf(" index out of bound");
 		exit(1);
 	}
 	
-	linklist *temp = l;
+	link_list *temp = l;
 	int x = 0;
 	while(temp != NULL){
 		if( x == i-1){
@@ -79,21 +77,22 @@ size_t linklist_get_at(linklist* l,int i){
 		temp = temp->next;
 		x = x + 1;	    
 	}
+	return 1;
 }
 
-linklist* linkList_set_at(linklist* l, int i, size_t x){
-	if(i > length_of_linklist(l)) {
+link_list *link_list_set_at(link_list *l, int i, size_t x){
+	if(i > length_of_link_list(l)) {
 		printf("Index out of bound");
 		exit(1);
 	}
-	linklist* temp = l;
+	link_list *temp = l;
 	
 	if (i < 1){
 		return l;
 	}
 	
 	if(i == 1 ){
-		linklist* new_node = create_new_node(x);
+		link_list *new_node = create_new_node(x);
 		new_node -> next = l ;
 		return new_node;
 	}
@@ -105,7 +104,7 @@ linklist* linkList_set_at(linklist* l, int i, size_t x){
 	if (temp ==NULL){
 		return l;
 		}
-	linklist* new_node = create_new_node(x);
+	link_list *new_node = create_new_node(x);
 	new_node->next = temp->next;
 	temp->next = new_node;
 	return l; 

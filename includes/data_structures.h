@@ -116,31 +116,31 @@ Interface:
 	1. create_new_node(size_t data): Create a New linklist node with data
 	2. length_of_linklist(linklist* l):  length of the linklist
 	3. traversal_linklist(linklist* l) : Show all element of linklist
-	4.delete_node_at(linklist* l,int i): Delete Node at index i
-	5.linklist_get_at(linklist* l,int i): Get the element at index i
-	6.linkList_set_at(linklist* l, int i, size_t x): set the elements of  at index i to x	
+	4. delete_node_at(linklist* l,int i): Delete Node at index i
+	5. linklist_get_at(linklist* l,int i): Get the element at index i
+	6. linkList_set_at(linklist* l, int i, size_t x): set the elements of  at index i to x	
  
 */
 
 
-typedef struct linklist{
+typedef struct Node{
 	size_t data;
-	struct linklist* next; 
-}linklist;
+	struct Node* next; 
+}link_list;
 
 
 
-linklist *create_new_node(size_t data);
+link_list *create_new_node(size_t data);
 
-int length_of_linklist(linklist* l);
+int length_of_link_list(link_list *l);
 
-void traversal_linklist(linklist* l);
+void traversal_link_list(link_list *l);
 
-linklist* delete_node_at(linklist* l,int i);
+link_list *delete_node_at(link_list *l,int i);
 
-size_t linklist_get_at(linklist* l,int i);
+size_t link_list_get_at(link_list *l,int i);
 
-linklist* linkList_set_at(linklist* l, int i, size_t x);
+link_list* link_list_set_at(link_list *l, int i, size_t x);
 
 #endif // DATA_STRUCTURE_H
 
